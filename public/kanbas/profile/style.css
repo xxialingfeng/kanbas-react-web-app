@@ -1,0 +1,15 @@
+#profile-form h1,
+#profile-form h2 {
+  font-weight: normal;
+}
+
+#profile-form h1,
+profile-edit-form button {
+  display: inline-block
+}
+
+#header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

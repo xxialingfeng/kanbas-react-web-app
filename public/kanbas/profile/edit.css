@@ -1,0 +1,13 @@
+#external-link:not(.a) {
+  color: blue;
+}
+
+#links-table th,
+#links-table td {
+  text-align: center;
+}
+
+#links-table td input {
+  width: 100%;
+  box-sizing: border-box;
+}
