@@ -1,0 +1,132 @@
+/* Sidebar styling */
+/* 清除页面的内边距和外边距 */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+  }
+  
+  table {
+    height: 100%;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+  }
+  
+  #sidebar {
+    width:80px;
+    margin-top:0;
+    padding: 0;
+    list-style-type: none; /* Remove list-style */
+    height: 100%;
+    background-color: black;
+  }
+  
+  /* Center content in each menu item */
+  #sidebar ul {
+    padding: 0;
+    margin: 0;
+  }
+  
+  #sidebar a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 8px 8px; /* Adjust padding around links (between 5 and 10 pixels) */
+  }
+  
+  #sidebar .account-icon {
+    color: grey !important; /* Account icon color */
+  }
+  
+  #sidebar i {
+    font-size: 20px; /* Adjust icon size as needed */
+    color: #B22222; /* Icon color (except for Account) */
+    margin-bottom: 5px;
+  }
+  
+  #sidebar .account {
+    background-color: black !important;
+  }
+  
+  #sidebar .acctText {
+    color: #B22222 !important;
+  }
+  
+  #sidebar .menu-item-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  #sidebar span {
+    display: block; /* Make the text a block element */
+    font-size: 12px; /* Adjust font size and style as needed */
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+  }
+  
+  .logoNU {
+    width: 75px;
+    height: 50px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  
+  #accountBar span {
+    display: block; /* Make the text a block element */
+    font-size: 15px; /* Adjust font size and style as needed */
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    padding: 3px;
+  }
+  
+  #accountBar {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+  }
+  
+  #accountBar ul {
+    margin-top:20px;
+    list-style-type: none; /* Remove list-style */
+    line-height: 30px;
+    padding: 8px;
+  }
+  
+  
+  #accountBar i {
+    padding-right: 30px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    color: #B22222;
+  }
+  
+  #accountBar a {
+    text-decoration: none;
+    color: #B22222;
+    display: flex;
+    flex-direction: column; /* Adjust padding around links (between 5 and 10 pixels) */
+  }
+  
+  .profile {
+    border-left: 1.5px solid black;
+  }
+  
+  .profileRight .fa-user {
+    font-size: 100px;
+    margin-bottom: 10px;
+  }
+  
+  li.title {
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px; /* 可以根据需要设置上下内边距 */
+    font-weight: lighter !important;
+  }
+  
+  td {
+    vertical-align: top;
+  }
+  
+  .wd-account-side-bar {
+    padding-left: 10px;
+  }

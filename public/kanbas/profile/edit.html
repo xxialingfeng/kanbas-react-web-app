@@ -1,122 +1,189 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="edit.css">
-  <title>Edit Profile</title>
-</head>
-
-<body>
-<table>
-  <tbody>
-  <tr>
-    <!-- First column -->
-    <td valign="top">
-      <ul>
-        <li><a href="../navigation/acctNav.html">Account</a></li>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="../navigation/courseNav.html">Courses</a></li>
-        <li><a href="#">Calendar</a></li>
-        <li><a href="#">Inbox</a></li>
-        <li><a href="#">History</a></li>
-        <li><a href="#">Studio</a></li>
-        <li><a href="#">Commons</a></li>
-        <li><a href="#">Help</a></li>
-      </ul>
-    </td>
-    <!-- Second column -->
-    <td>
-      <ul>
-        <li><a href="#">Notifications</a></li>
-        <li><a href="./index.html">Profile</a></li>
-        <li><a href="#">Files</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">ePortfolios</a></li>
-        <li><a href="#">Shared Content</a></li>
-        <li><a href="#">The Hub</a></li>
-        <li><a href="#">Quickly Course Tools</a></li>
-        <li><a href="#">Global Announcements</a></li>
-      </ul>
-    </td>
-    <!-- Third column -->
-    <td>
-      <form action="./index.html" id="profile-edit-form">
-        <div>
-          <h1>Lingfeng Xia</h1>
-          <label for="profile-edit-name">Name:* </label>
-          <input type="text" name="name" id="profile-edit-name" value="Lingfeng Xia">
-          <label for="profile-edit-pronouns">Pronouns: </label>
-          <select name="pronouns" id="profile-edit-pronouns">
-            <option value="NONE" selected>None</option>
-            <option value="HE-HIM-HIS">He/Him/His</option>
-            <option value="SHE-HER-HERS">She/Her/Hers</option>
-            <option value="THEY-THEM-THEIRS">They/Them/Theirs</option>
-          </select>
-          <br>
-          <label>Title: </label>
-          <input type="text" name="title" id="profit-edit-title">
-        </div>
-        <div>
-          <h2>Contact</h2>
-          No registered services, you can add some on the <a href="#">settings</a> page.
-        </div>
-        <div>
-          <h2>Biography</h2>
-          <textarea name="biography" id="profile-edit-biography" cols="30"
-                    rows="10">Programmer</textarea>
-        </div>
-        <div>
-          <h2>Links</h2>
-          <ul>
-            <li id="external-link"><a
-                href="https://www.instagram.com/jnotjoke/">Instagram</a> Links to an
-              external site.
-            </li>
-          </ul>
-        </div>
-        <table id="links-table">
-          <thead>
-          <tr>
-            <th>
-              Title
-            </th>
-            <th></th>
-            <th>
-              URL
-            </th>
-            <th></th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td class="auto-width"><input type="text" name="link-title"
-                                          id="profile-edit-link-title" value="Instagram">
-            </td>
-            <td>&rarr;</td>
-            <td class="auto-width"><input type="text" name="link-url" id="profile-edit-link-url"
-                                          value="https://www.instagram.com/jerrysrandomsnaps/"></td>
-            <td><a href="#">Remove</a></td>
-          </tr>
-          </tbody>
+<html>
+    <head>
+        <link rel="stylesheet" href="edit.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
+    <body>
+        <table width="100%">
+            <tbody>
+                <tr>
+                    <td class="sidebar" valign="top">
+                        <nav id="sidebar">
+                            <ul>
+                              <li>
+                                <img src="LOGO.png" class="logoNU">
+                              </li>
+                              <li>
+                                <a class="account" id="account_link" style="background-color: white" href="index.html">
+                                  <i class="fas fa-user account-icon"></i>
+                                  <span class = "acctText">Account</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="../dashboard/index.html" class="selected">
+                                  <i class="fas fa-tachometer-alt"></i>
+                                  <span>Dashboard</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="../course/index.html">
+                                  <i class="fas fa-book"></i>
+                                  <span>Courses</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <i class="fas fa-calendar"></i>
+                                  <span>Calendar</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <i class="fas fa-inbox"></i>
+                                  <span>Inbox</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <i class="fas fa-history"></i>
+                                  <span>History</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <i class="fas fa-desktop"></i>
+                                  <span>Studio</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <i class="fas fa-share-alt-square"></i>
+                                  <span>Commons</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <i class="fas fa-info-circle"></i>
+                                  <span>Help</span>
+                                </a>
+                              </li>
+                            </ul>
+                          </nav>
+                    </td>
+                    <td>
+                        <table width="100%">
+                            <tr>
+                                <div profileName style="font-size: 20px; font-family: Verdana, Arial, Helvetica, sans-serif;"><li class="title" style="list-style-type: none;"><i class="fa-solid fa-bars" style="color: #B22222; margin-right:30px; font-size: 25px;"></i>Lingfeng Xia's profile</li></div>
+                                <hr/>
+                            </tr>
+                            <tr>
+                                <td class="wd-account-side-bar" valign="top">
+                                    <nav id = accountBar>
+                                        <ul>
+                                          <li><a href="#"><Span>Notifications</Span></a></li>
+                                          <li class="profile" style="color: black"><a href="../profile/index.html"><Span style="color: black">Profile</Span></a></li>
+                                          <li><a href="#"><Span>Files</Span></a></li>
+                                          <li><a href="#"><Span>Settings</Span></a></li>
+                                          <li><a href="#"><Span>ePortfolios</Span></a></li>
+                                          <li><a href="#"><Span>Shared Content</Span></a></li>
+                                          <li><a href="#"><Span>The Hub</Span></a></li>
+                                          <li><a href="#"><Span>Qwickly Course Tools</Span></a></li>
+                                          <li><a href="#"><Span>Global Announcements</Span></a></li>
+                                        </ul>
+                                      </nav>
+                                </td>
+                                <td valign="top">
+                                  <table>
+                                      <tr>
+                                          <td>
+                                              <div class="profileEdit">
+                                                  <i class="fa fa-user" style="color:grey"aria-hidden="true"></i><br/>
+                                              </div>
+                                              <div class="row">
+                                                  <div class="nameinfo" style="padding:10px;">
+                                                      <label for="name-input" class="name-input" style="font-weight:bold;font-size:13px;">Name*:</label>
+                                                  </div>
+                                                  <div class="namebox" style="padding:10px;">
+                                                      <input class="form-control form-control-sm" type="text" value="Lingfeng Xia" aria-label="name"/>
+                                                  </div>
+                                                  <div class="pronouninfo" style="padding:10px;">
+                                                      <label style="padding-bottom:10px; font-weight:bold;font-size:13px;">Pronouns: </label>
+                                                      <br>
+                                                      <select class="form-control form-control-sm" >
+                                                          <option>None</option>
+                                                      </select>
+                                                  </div>
+                                              </div>
+                                              
+                                              <div class="row">
+                                                  <div class="titleinfo" style="padding:10px;">
+                                                      <label for="title-input" class="title-input" style="font-weight:bold;font-size:13px;">Title: </label>
+                                                  </div>
+                                                  <div class="titlebox" style="padding-bottom:25px;">
+                                                      <input class="form-control form-control-sm" type="text" aria-label="title"/>
+                                                  </div>
+                                              </div>
+                      
+                                              <br/>
+                                              <p style="font-size:25px">Contact</p>
+                                              <p style="padding-bottom:25px;">No registered services, you can add some on the <a>settings</a> page</p>
+          
+                                              <div class="mb-3" style="padding-bottom:25px;">
+                                                  <label for="textarea" class="form-label"><p style="font-size:25px">Biography</p></label>
+                                                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">Faculty, Software Enginerer, AI, Space, and renewables enthusiast</textarea>
+                                              </div>
+                                              
+                                              <p style="font-size:25px">Links</p>
+        
+                                              <div class="container" style="padding:0px">
+                                                  <div class="row">
+                                                    <div class="col">
+                                                      <h5>Title</h5>
+                                                      <div class="row">
+                                                          <div class="row">
+                                                              <div class="col-md-10">
+                                                                  <input style="margin-bottom:10px;" class="form-control form-control-sm" type="text" value="Instagram" aria-label="name"/>
+                                                                  <button class="btn btn-light">Add another link</button><br/>
+                                                              </div>
+                                                              <div class="col-md-1">
+                                                                  &#8594;
+                                                              </div>
+                                                          </div>
+                                                          
+                                                      </div>
+                                                    </div>
+                                                    <div class="col">
+                                                      <h5>URL</h5>
+                                                      <div class="row">
+                                                          <div class="row" style="place-items: center;">
+                                                              <div class="col-md-10" style="place-items: center;">
+                                                                  <input class="form-control form-control-sm" type="text" value="https://www.instagram.com/jnotjoke/" aria-label="name"/>
+                                                              </div>
+                                                              <div class="col-md-1" style="place-items: center;">
+                                                                  <a href="#"><i class="fa-solid fa-xmark" style="color:#B22222; text-align: center;"></i></a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <hr/>
+                                          <div class="float-end">
+                                            <a href="index.html"><button class="btn btn-light" style="background-color:#ddd; border: #ddd; color:black;">Cancel</button></a>
+                                            <a href="index.html"><button class="btn btn-danger" style="background-color:#B22222; border: #ddd; color:white;">Save Profile</button><br/></a>
+                                          </div>
+                                          
+                                          </td>
+                                          <div class="float-end">
+                                              <a href="index.html">
+                                                  <button class="btn btn-light" style="background-color:#ddd; border: #ddd; color:black;"><i class="fa fa-pencil" aria-hidden="true"></i>Cancel Editing</button>
+                                              </a>
+                                          </div><br>
+                                      </tr>
+                                  </table>
+                              </td>
+                </tr>
+            </tbody>
         </table>
-        <div id="profile-edit-link-buttons">
-          <button type="button">Add another link</button>
-          <br>
-          <button type="button">Cancel</button>
-          <button>Save Profile</button>
-          <br>
-          <button type="button">Edit Profile</button>
-          <button>Cancel Editing</button>
-        </div>
-      </form>
-
-
-    </td>
-  </tr>
-  </tbody>
-</table>
-</body>
-
+    </body>
 </html>

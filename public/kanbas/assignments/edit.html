@@ -1,217 +1,332 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit Assignment</title>
-</head>
-
-<body>
-<table>
-  <tbody>
-  <tr>
-    <!-- First column -->
-    <td valign="top">
-      <ul>
-        <li><a href="../navigation/acctNav.html">Account</a></li>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="../navigation/courseNav.html">Courses</a></li>
-        <li><a href="#">Calendar</a></li>
-        <li><a href="#">Inbox</a></li>
-        <li><a href="#">History</a></li>
-        <li><a href="#">Studio</a></li>
-        <li><a href="#">Commons</a></li>
-        <li><a href="#">Help</a></li>
-      </ul>
-    </td>
-    <!-- Second column -->
-    <td>
-      <ul>
-        <li><a href="../home.html">Home</a></li>
-        <li><a href="#">Modules</a></li>
-        <li><a href="#">Piazza</a></li>
-        <li><a href="#">Zoom Meetings</a></li>
-        <li><a href="./index.html">Assignments</a></li>
-        <li><a href="#">Quizzes</a></li>
-        <li><a href="../grades.html">Grades</a></li>
-        <li><a href="#">People</a></li>
-        <li><a href="#">Panopto Video</a></li>
-        <li><a href="#">Discussions</a></li>
-        <li><a href="#">Announcements</a></li>
-        <li><a href="#">Pages</a></li>
-        <li><a href="#">Files</a></li>
-        <li><a href="#">Rubrics</a></li>
-        <li><a href="#">Outcomes</a></li>
-        <li><a href="#">Collaborations</a></li>
-        <li><a href="#">Syllabus</a></li>
-        <li><a href="../settings/index.html">Settings</a></li>
-      </ul>
-    </td>
-    <!-- Third column -->
-    <td>
-      <select name="assignment-edit-speed-grader" id="assignment-edit-speed-grader">
-        <option value="SPEED-GRADER" selected>SpeedGrader</option>
-      </select>
-      <hr>
-      <form action="../assignments/index.html">
-        <div id="assignment-edit-assignment-basic-info">
-          <label for="assignment-edit-assignment-name">
-            <h2>Assignment Name</h2>
-          </label>
-          <input type="text" name="assignment-name" id="assignment-edit-assignment-name"
-                 value="A1 - ENV + HTML">
-          <br>
-          <br>
-          <textarea name="assignment-description" id="assignment-edit-assignment-description"
-                    cols="30" rows="10">This is the assignment description.</textarea>
-        </div>
-        <br>
-        <div id="assignment-edit-assignment-points">
-          <label for="assignment-edit-assignment-points">Points</label>
-          <br>
-          <input type="number" name="assignment-points"
-                 value="100" max="100" min="0" step=1 value="100">
-        </div>
-        <br>
-        <div id="assignment-edit-assignment-group">
-          <label for="assignment-edit-assignment-group">Assignment Group</label>
-          <br>
-          <select name="assignment-group">
-            <option value="ASSIGNMENTS" selected>Assignments</option>
-            <option value="EXAMS">Exams</option>
-            <option value="PROJECT">Project</option>
-          </select>
-        </div>
-        <br>
-        <div id="assignment-edit-assignment-grade-display">
-          <label for="assignment-edit-assignment-grade-display-as">Display Grade as</label>
-          <br>
-          <select name="assignment-grade-display-as" id="assignment-edit-assignment-grade-display-as">
-            <option value="PERCENTAGE" selected>Percentage</option>
-            <option value="VALUE">Grade Value</option>
-          </select>
-        </div>
-        <br>
-        <div id="assignment-edit-submission-type">
-          <label for="assignment-edit-assignment-submission-type-dropdown">Submission type</label>
-          <br>
-          <select name="assignment-submission-type"
-                  id="assignment-edit-assignment-submission-type-dropdown">
-            <option value="ONLINE" selected>Online</option>
-            <option value="IN-PERSON">In Person</option>
-          </select>
-          <br>
-          <br>
-          <div id="assignment-edit-submission-online-options">
-            <label>Online Entry Options</label>
-            <br>
-            <input type="checkbox" name="check-online-entry" id="checkbox-text-entry">
-            <label for="checkbox-text-entry">Text Entry</label>
-            <br>
-            <input type="checkbox" name="check-online-entry" id="checkbox-website-url">
-            <label for="checkbox-website-url">Website URL</label>
-            <br>
-            <input type="checkbox" name="check-online-entry" id="checkbox-media-recordings">
-            <label for="checkbox-media-recordings">Media Recordings</label>
-            <br>
-            <input type="checkbox" name="check-online-entry" id="checkbox-student-annotation">
-            <label for="checkbox-student-annotation">Student Annotation</label>
-            <br>
-            <input type="checkbox" name="check-online-entry" id="checkbox-file-uploads">
-            <label for="checkbox-file-uploads">File Uploads</label>
-          </div>
-        </div>
-        <br>
-        <div id="assignment-edit-submission-attempts">
-          <label for="assignment-edit-submission-attempts-dropdown">
-            Submission Attempts
-          </label>
-          <br>
-          <select name="submision-attempts" id="assignment-edit-submission-attempts-dropdown">
-            <option value="UNLIMITED" selected>Unlimited</option>
-            <option value="ONE">1</option>
-            <option value="TWO">2</option>
-            <option value="THREE">3</option>
-            <option value="FOUR">4</option>
-            <option value="FIVE">5</option>
-          </select>
-        </div>
-        <br>
-        <div id="assignment-edit-plagiarism">
-          <label for="assignment-edit-plagiarism-dropdown">
-            Plagiarism Review
-          </label>
-          <br>
-          <select name="plagiarism" id="assignment-edit-plagiarism-dropdown">
-            <option value="NONE" selected>None</option>
-            <option value="STRICT">Strict</option>
-            <option value="RELAXED">Relaxed</option>
-          </select>
-        </div>
-        <br>
-        <div id="assignment-edit-group-assignment">
-          <label>
-            Group Assignment
-          </label>
-          <br>
-          <input type="checkbox" name="check-group" id="checkbox-group">
-          <label for="checkbox-group">This is a group assignment</label>
-        </div>
-        <br>
-        <div id="assignment-edit-peer-reviews">
-          <label>
-            Peer Reviews
-          </label>
-          <br>
-          <input type="checkbox" name="check-peer-reviews" id="checkbox-peer-reviews">
-          <label for="checkbox-peer-reviews">Require Peer Reviews</label>
-        </div>
-        <br>
-        <div id="assignment-edit-assign-to">
-          <label>Assign</label>
-          <br>
-          <label>Assign to</label>
-          <br>
-          <input type="text" name="assign-to" id="assignment-edit-assign-to-input" value="Everyone">
-        </div>
-        <br>
-        <div id="assignment-edit-dates">
-          <label>
-            Due
-          </label>
-          <br>
-          <input type="date" name="due" id="assignment-edit-assignment-due-input" value="2023-01-01">
-          <br>
-          <br>
-          <label for="assignment-edit-assignment-available-from">
-            Available from
-          </label>
-          <br>
-          <input type="date" name="available-from" id="assignment-edit-assignment-available-from"
-                 value="2023-01-01">
-          <br>
-          <br>
-          <label for="assignment-edit-assignment-until">
-            Until
-          </label>
-          <br>
-          <input type="date" name="until" id="assignment-edit-assignment-until" value="2023-01-01">
-        </div>
-        <br>
-        <div id="assignment-edit-submision-buttons">
-          <button>Cancel</button>
-          <button>Save</button>
-        </div>
-      </form>
-
-
-
-
-    </td>
-  </tr>
-  </tbody>
-</table>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+</html>
+    <body>
+        <table width="100%">
+            <tbody>
+                <tr>
+                    <td class="d-none d-md-block" valign="top" style="height:100%;">
+                        <nav id="sidebar">
+                            <ul>
+                              <li>
+                                <img src="LOGO.png" class="logoNU">
+                              </li>
+                              <li>
+                                <a class="account" id="account_link" href="../profile/index.html">
+                                  <i class="fas fa-user account-icon"></i>
+                                  <span>Account</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="../dashboard/index.html" class="selected">
+                                  <i class="fas fa-tachometer-alt"></i>
+                                  <span>Dashboard</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="index.html" style="background-color: white">
+                                  <i class="fas fa-book"></i>
+                                  <span  class = "acctText">Courses</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <i class="fas fa-calendar"></i>
+                                  <span>Calendar</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <i class="fas fa-inbox"></i>
+                                  <span>Inbox</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <i class="fas fa-history"></i>
+                                  <span>History</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <i class="fas fa-desktop"></i>
+                                  <span>Studio</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <i class="fas fa-share-alt-square"></i>
+                                  <span>Commons</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <i class="fas fa-info-circle"></i>
+                                  <span>Help</span>
+                                </a>
+                              </li>
+                            </ul>
+                          </nav>
+                    </td>
+                    <td style="height:100%; padding:0px; margin:0px; " >
+                        <table>
+                            <tr>
+                                <nav style="--bs-breadcrumb-divider: '>'; padding-left: 20px; height:100%" aria-label="breadcrumb">
+                                    <ol class="breadcrumb" style="text-align:center; padding-top: 10px;">
+                                        <i class="fa-solid fa-bars" style="color:#B22222; margin-right:30px; font-size: 25px;" role="button" data-bs-toggle="modal" data-bs-target="#popupCard" aria-expanded="false" aria-controls="collapseExample"></i>
+                                        <div class="modal fade" id="popupCard" tabindex="-1" aria-labelledby="popupCardLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <ul>
+                                                            <li style="list-style-type: none; text-decoration: none; color:#B22222; text-align: left; padding-bottom:18px;">
+                                                              <a id="account_link" href="../profile/index.html" style="text-decoration: none; color:#B22222; color:#B22222;">
+                                                                <i class="fas fa-user account-icon" style="text-decoration: none; color:#B22222; color:#B22222"></i>
+                                                                <span style="text-decoration: none; color:#B22222; color:#B22222">Account</span>
+                                                              </a>
+                                                            </li>
+                                                            <li style="list-style-type: none; text-decoration: none; color:#B22222; text-align: left; padding-bottom:18px;">
+                                                              <a href="../dashboard/index.html" class="selected" style="text-decoration: none; color:#B22222; color:#B22222">
+                                                                <i class="fas fa-tachometer-alt" style="text-decoration: none; color:#B22222; color:#B22222"></i>
+                                                                <span style="text-decoration: none; color:#B22222; color:#B22222">Dashboard</span>
+                                                              </a>
+                                                            </li>
+                                                            <li style="list-style-type: none; text-decoration: none; color:#B22222; text-align: left; padding-bottom:18px;">
+                                                              <a href="../course/index.html" style="text-decoration: none; color:#B22222; color:#B22222">
+                                                                <i class="fas fa-book" style="text-decoration: none; color:#B22222; color:#B22222"></i>
+                                                                <span style="text-decoration: none; color:#B22222; color:#B22222">Courses</span>
+                                                              </a>
+                                                            </li>
+                                                            <li style="list-style-type: none; text-decoration: none; color:#B22222; text-align: left; padding-bottom:18px;">
+                                                              <a href="#" style="text-decoration: none; color:#B22222; color:#B22222">
+                                                                <i class="fas fa-calendar" style="text-decoration: none; color:#B22222; color:#B22222"></i>
+                                                                <span style="text-decoration: none; color:#B22222; color:#B22222">Calendar</span>
+                                                              </a>
+                                                            </li>
+                                                            <li style="list-style-type: none; text-decoration: none; color:#B22222; text-align: left; padding-bottom:18px;">
+                                                              <a href="#" style="text-decoration: none; color:#B22222; color:#B22222">
+                                                                <i class="fas fa-inbox" style="text-decoration: none; color:#B22222; color:#B22222"></i>
+                                                                <span style="text-decoration: none; color:#B22222; color:#B22222">Inbox</span>
+                                                              </a>
+                                                            </li>
+                                                            <li style="list-style-type: none; text-decoration: none; color:#B22222; text-align: left; padding-bottom:18px;">
+                                                              <a href="#" style="text-decoration: none; color:#B22222; color:#B22222">
+                                                                <i class="fas fa-history" style="text-decoration: none; color:#B22222; color:#B22222"></i>
+                                                                <span style="text-decoration: none; color:#B22222; color:#B22222">History</span>
+                                                              </a>
+                                                            </li>
+                                                            <li style="list-style-type: none; text-decoration: none; color:#B22222; text-align: left; padding-bottom:18px;">
+                                                              <a href="#" style="text-decoration: none; color:#B22222; color:#B22222">
+                                                                <i class="fas fa-desktop" style="text-decoration: none; color:#B22222; color:#B22222"></i>
+                                                                <span style="text-decoration: none; color:#B22222; color:#B22222">Studio</span>
+                                                              </a>
+                                                            </li>
+                                                            <li style="list-style-type: none; text-decoration: none; color:#B22222; text-align: left; padding-bottom:18px;">
+                                                              <a href="#" style="text-decoration: none; color:#B22222; color:#B22222">
+                                                                <i class="fas fa-share-alt-square" style="text-decoration: none; color:#B22222; color:#B22222"></i>
+                                                                <span style="text-decoration: none; color:#B22222; color:#B22222">Commons</span>
+                                                              </a>
+                                                            </li>
+                                                            <li style="list-style-type: none; text-align: left; padding-bottom:18px;">
+                                                              <a href="#" style="text-decoration: none; color:#B22222; color:#B22222; ">
+                                                                <i class="fas fa-info-circle" style="text-decoration: none; color:#B22222; color:#B22222"></i>
+                                                                <span style="text-decoration: none; color:#B22222; color:#B22222">Help</span>
+                                                              </a>
+                                                            </li>
+                                                          </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
+
+                                      <li class="breadcrumb-item" style="font-size: 16px; display:flex; align-items: center;"><a href="#" style="text-decoration :none; color: #B22222;">CS4550.126...</a></li>
+                                      <li class="breadcrumb-item active" style="color: #B22222; font-size: 16px; display:flex; align-items: center;" aria-current="page">Assignments</li>
+                                      <li class="breadcrumb-item active" style="color: black; font-size: 16px; display:flex; align-items: center;" aria-current="page">A1 - ENV + ...</li>
+                                    </ol>
+                                </nav>
+                                <hr/>
+                            </tr>
+                            <tr>
+                                <td class="wd-account-side-bar d-none d-md-block" style="height:100%; width:300px; " valign="top">
+                                    <p style="font-size:10px; color:grey; padding-left:20px; font-family:Verdana, Arial, Helvetica, sans-serif; margin:0px; padding-left: 20px;">202410_1 Fall2023 semester...</p>
+                                    <nav id = accountBar>
+                                        <ul>
+                                          <li><a href="../course/index.html"><Span>Home</Span></a></li>
+                                          <li ><a href="#"><Span>Modules</Span></a></li>
+                                          <li><a href="#"><Span>Piazza</Span></a></li>
+                                          <li><a href="#"><Span>Zoom Meetings</Span></a></li>
+                                          <li class="profile" style="color: black"><a href="index.html"><Span style="color:black">Assignments</Span></a></li>
+                                          <li><a href="#"><Span>Quizzes</Span></a></li>
+                                          <li><a href="../grades/index.html"><Span>Grades</Span></a></li>
+                                          <li><a href="#"><Span>People</Span></a></li>
+                                          <li><a href="#"><Span>Panopto Video</Span></a></li>
+                                          <li><a href="#"><Span>Discussions</Span></a></li>
+                                          <li><a href="#"><Span>Announcements</Span></a></li>
+                                          <li><a href="#"><Span>Pages</Span></a></li>
+                                          <li><a href="#"><Span>Files</Span></a></li>
+                                          <li><a href="#"><Span>Rubrics</Span></a></li>
+                                          <li><a href="#"><Span>Outcomes</Span></a></li>
+                                          <li><a href="#"><Span>Collaborations</Span></a></li>
+                                          <li><a href="#"><Span>Syllabus</Span></a></li>
+                                          <li><a href="#"><Span>Progress Reports(EAB Navigate)</Span></a></li>
+                                          <li><a href="#"><Span>Settings</Span></a></li>
+                                        </ul>
+                                      </nav>
+                                </td>
+                                <td width="100%">
+                                    <div class="buttonset" style="height:54px; border-bottom: 1.5px solid #ddd; display:felx; justify-content:center; align-items: center;">
+                                        <div class="float-end d-flex" style="display:felx; justify-content:center; align-items: center; ">
+                                            <i class="fa-regular fa-circle-check p-1" style="color:green; display:flex; justify-content:center"></i>
+                                            <p class="p-1" style="color:green; display:felx; justify-content:center; align-items: center; padding:0; margin:0"> Published</p>
+                                            <button class="btn btn-secondary" style="height:30px; display:felx; justify-content:center; align-items: center; background-color:#ddd; border: #ddd; color:black;" ><i class="fa fa-ellipsis-v" aria-hidden="true"></i> </button>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                      <label for="exampleFormControlInput1" class="form-label"  style="padding-top:20px;">Assignment Name</label>
+                                      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="A1 - ENV + HTML">
+                                    </div>
+                                    <div class="mb-3">
+                                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder="This assignment describes how to install the development environemnt for creating and working with Web applications. We will be developing this semester. We will add new content every week, pushing the code to a Giuhub source repo, and then deploying the content to a remote server hosted on Netify."></textarea>
+                                    </div>
+                                    <div class="mb-3 row" >
+                                      <label for="inputPassword" class="col-sm-2 col-form-label" style="text-align:right; width:200px">Points</label>
+                                      <input type="password" class="form-control" id="inputPassword" placeholder="100" style="width:300px">
+                                    </div>
+                                    <div class="mb-3 row" >
+                                      <label style="text-align:right; width:200px">Assignment Group</label>
+                                      <select class="form-select" aria-label="Default select example" style="width:300px">
+                                        <option selected>ASSIGNMENTS</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                      </select>
+                                    </div>
+                                    <div class="mb-3 row">
+                                      <label style="text-align:right; width:200px">Display Grade As</label>
+                                      <select class="form-select" aria-label="Default select example" style="width:300px">
+                                        <option selected>Percentage</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                      </select>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-left:166px; padding-right:5px">
+                                      <label class="form-check-label" for="flexCheckDefault" style="margin-left:5px">
+                                        Do not count this assignment as final grade
+                                      </label>
+                                    </div>
+                                    <div class="mb-3 row" style="margin-top:20px; " >
+                                      <label for="exampleFormControlInput1" class="form-label" style="padding-top:20px; width:200px; text-align: right;">Submission Type</label>
+                                      <div class="form-control" style="width:400px;">
+                                        <select class="form-select" aria-label="Default select example" style="width:200px; margin-bottom:20px;">
+                                          <option selected>Online</option>
+                                          <option value="1">One</option>
+                                          <option value="2">Two</option>
+                                          <option value="3">Three</option>
+                                        </select>
+                                      <div>
+                                        <label for="onlineEntryOptions" class="form-label" style="margin-bottom:20px; font-weight: bold;">Online Entry Options</label>
+                                        <div class="form-check" style="margin-bottom:20px;">
+                                          <input class="form-check-input" type="checkbox" value="">
+                                          <label class="form-check-label" for="flexCheckDefault">
+                                            Text Entry
+                                          </label>
+                                        </div>
+                                        <div class="form-check" style="margin-bottom:20px;">
+                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                          <label class="form-check-label" for="flexCheckChecked">
+                                            Website URL
+                                          </label>
+                                        </div>
+                                        <div class="form-check" style="margin-bottom:20px;">
+                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                          <label class="form-check-label" for="flexCheckChecked">
+                                            Media Recording
+                                          </label>
+                                        </div>
+                                        <div class="form-check" style="margin-bottom:20px;">
+                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                          <label class="form-check-label" for="flexCheckChecked">
+                                            Student Annotation
+                                          </label>
+                                        </div>
+                                        <div class="form-check" style="margin-bottom:20px;">
+                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                          <label class="form-check-label" for="flexCheckChecked">
+                                            File Uploads
+                                          </label>
+                                        </div>
+                                      </div> 
+                                    </div>
+                                    <div class="mb-3 row" style="margin-top:20px; padding-bottom:20px; border-bottom:1px solid #ddd" >
+                                      <label for="exampleFormControlInput1" class="form-label" style="padding-top:20px; width:200px; text-align: right;">Assign</label>
+                                      <div class="form-control" style="width:400px;">
+                                        <div>
+                                          <label for="exampleFormControlInput1" class="form-label"  style="padding-top:20px; font-weight: bold;">Assign To</label>
+                                          <div class="dropdown form-control" >
+                                            <button class="btn form-control" style="width:120px; font-size:12px; background-color: #ddd;" type="button" id="assignDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                              Everyone
+                                              <i class="fa-solid fa-xmark"></i>
+                                            </button>
+                                          </div>
+                                        </div>
+                                        <div>
+                                          <label for="exampleFormControlInput1" class="form-label"  style="padding-top:20px; font-weight: bold;">Due</label>
+                                          <div class="input-group mb-3">
+                                            <input type="text" class="form-control" placeholder="September 18, 2023, 11:59 PM" aria-label="Username">
+                                            <span class="input-group-text"><i class="fa-solid fa-calendar-days"></i></span>
+                                          </div>
+                                        </div>
+                                        <div class="d-flex">
+                                          <div>
+                                            <label for="exampleFormControlInput1" class="form-label"  style="padding-top:20px; font-weight: bold;">Available From</label>
+                                            <div class="input-group mb-3">
+                                              <input type="text" class="form-control" placeholder="September 18, 2023, 11:59 PM" aria-label="Username">
+                                              <span class="input-group-text"><i class="fa-solid fa-calendar-days"></i></span>
+                                            </div>
+                                          </div>
+                                          <div>
+                                            <label for="exampleFormControlInput1" class="form-label"  style="padding-top:20px; font-weight: bold;">Until</label>
+                                            <div class="input-group mb-3">
+                                              <input type="text" class="form-control" placeholder="September 18, 2023, 11:59 PM" aria-label="Username">
+                                              <span class="input-group-text"><i class="fa-solid fa-calendar-days"></i></span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-12" style="padding-left:200px;">
+                                        <button type="submit" class="btn" style="width:400px; background-color: #ddd;"><i class="fa-solid fa-plus"></i> Add</button>
+                                      </div> 
+                                    </div>
+                                    <div style="border-bottom:1px solid #ddd">
+                                      <div class="float-end d-flex">
+                                        <button class="btn btn-secondary" style="margin-right:10px;display:felx; justify-content:center; align-items: center; background-color:#ddd; border: #ddd; color:black;" >Cancel</button>
+                                        <button class="btn btn-danger" style="display:felx; justify-content:center; align-items: center; background-color:#B22222; border: #ddd; color:white;">Save</button>
+                                      </div>
+                                      <div class="form-check" style="display:felx; justify-content:center; align-items: center;">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-left:50px; padding-right:5px; display:felx; justify-content:center; align-items: center;">
+                                        <label class="form-check-label" for="flexCheckDefault" style="margin-left:5px; display:felx; justify-content:center; align-items: center;">
+                                          Notify users that this content has changed
+                                        </label>
+                                      </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
 </html>

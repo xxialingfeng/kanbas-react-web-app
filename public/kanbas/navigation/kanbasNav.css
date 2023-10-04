@@ -1,0 +1,73 @@
+/* Sidebar styling */
+/* 清除页面的内边距和外边距 */
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+#sidebar {
+    margin-top:0;
+    width: 80px; /* Adjust width as needed (between 75 and 85 pixels) */
+    padding: 0;
+    list-style-type: none; /* Remove list-style */
+}
+  
+/* Center content in each menu item */
+#sidebar ul {
+    padding: 0;
+    margin: 0;
+}
+
+
+#sidebar a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 8px 8px; /* Adjust padding around links (between 5 and 10 pixels) */
+}
+
+#sidebar .account-icon {
+    color: grey !important; /* Account icon color */
+}
+
+#sidebar i {
+    font-size: 20px; /* Adjust icon size as needed */
+    color: #B22222; /* Icon color (except for Account) */
+    margin-bottom: 5px;
+}
+
+#sidebar li {
+    background-color: black;
+}
+
+.account {
+    background-color: white !important;
+}
+
+.acctText {
+    color: #B22222 !important;
+    font-size: 12px;
+}
+
+#sidebar .menu-item-content {
+    display: flex;
+    align-items: center;
+}
+  
+
+#sidebar span {
+    display: block; /* Make the text a block element */
+    font-size: 12px; /* Adjust font size and style as needed */
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.logoNU {
+    width: 75px;
+    height: 50px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: center;
+}
