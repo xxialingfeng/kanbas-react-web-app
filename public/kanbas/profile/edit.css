@@ -92,8 +92,8 @@ table {
 #accountBar ul {
   margin-top:20px;
   list-style-type: none; /* Remove list-style */
-  line-height: 30px;
-  padding: 8px;
+  line-height: 24px;
+  padding-left: 20px;
 }
 
 
@@ -115,7 +115,7 @@ table {
   border-left: 1.5px solid black;
 }
 
-.profileEdit .fa-user {
+.profileRight .fa-user {
   font-size: 100px;
   margin-bottom: 10px;
 }
@@ -133,9 +133,4 @@ td {
 
 .wd-account-side-bar {
   margin: 0px;
-}
-
-.container {
-  text-align: left;
-  padding: 0;
 }
