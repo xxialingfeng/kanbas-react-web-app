@@ -11,16 +11,11 @@ html, body {
     font-family: Verdana, Arial, Helvetica, sans-serif;
   }
   
-  .side-bar {
-    background-color: black;
-  }
-  
   #sidebar {
+    width:80px;
     margin-top:0;
-    width: 80px; /* Adjust width as needed (between 75 and 85 pixels) */
     padding: 0;
     list-style-type: none; /* Remove list-style */
-    display:flex;
     height: 100%;
     background-color: black;
   }
@@ -52,7 +47,7 @@ html, body {
   }
   
   #sidebar .account {
-    background-color: white !important;
+    background-color: black !important;
   }
   
   #sidebar .acctText {
@@ -92,8 +87,8 @@ html, body {
   #accountBar ul {
     margin-top:20px;
     list-style-type: none; /* Remove list-style */
-    line-height: 24px;
-    padding-left: 20px;
+    line-height: 30px;
+    padding: 8px;
   }
   
   
@@ -125,6 +120,7 @@ html, body {
     left: 0;
     width: 100%;
     padding: 10px; /* 可以根据需要设置上下内边距 */
+    font-weight: lighter !important;
   }
   
   td {
@@ -132,6 +128,5 @@ html, body {
   }
   
   .wd-account-side-bar {
-    margin: 0px;
+    padding-left: 10px;
   }
-  
