@@ -1,0 +1,4 @@
+.selected {
+    background-color: white !important; /* 背景变为白色 */
+    color: red !important; /* 字体变红色 */
+  }

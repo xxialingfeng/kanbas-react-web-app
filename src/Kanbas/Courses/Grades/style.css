@@ -1,0 +1,8 @@
+table {
+    border-collapse: collapse; /* 合并边框，确保单元格之间没有间隙 */
+    width: 100%; /* 设置表格宽度 */
+  }
+  
+td, th {
+    border: 1px solid #ddd; /* 为单元格添加1像素宽的边框，颜色可以根据需要进行调整 */
+  }

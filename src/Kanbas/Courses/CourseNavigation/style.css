@@ -1,0 +1,11 @@
+.custom-link {
+    text-decoration: none !important;
+    background-color: transparent !important;
+    outline: none !important;
+  }
+  
+  .custom-link:hover {
+    text-decoration: none !important;
+    background-color: transparent !important;
+    outline: none !important;
+  }
