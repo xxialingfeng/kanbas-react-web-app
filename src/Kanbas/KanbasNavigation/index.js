@@ -36,7 +36,7 @@ function KanbasNavigation() {
     if (!initialized) {
       setInitialized(true);
     }
-  }, []);
+  }, [initialized]);
 
   useEffect(() => {
     if (initialized) {
