@@ -13,7 +13,7 @@ function Courses() {
   const { courseId } = useParams();
   const course = db.courses.find((course) => course._id === courseId);
   const location = useLocation();
-  const [showExtraBreadcrumb, setShowExtraBreadcrumb] = useState(false);
+  const [setShowExtraBreadcrumb] = useState(false);
   const handleShowExtraBreadcrumb = () => {
     setShowExtraBreadcrumb(true);
   };
@@ -39,7 +39,7 @@ function Courses() {
             <div className="breadcrumb" style={{paddingBottom: "20px"}}>
                 <FontAwesomeIcon icon={faBars} style={{ fontSize: '25px', color: '#B22222' }} />
                 <span className="breadcrumb-item" style={{ fontSize: '18px', display: 'flex', alignItems: 'center', marginLeft: "50px"}}>
-                    <a href="#" style={{ textDecoration: 'none', color: '#B22222' }}>
+                    <a href="http://google.com" style={{ textDecoration: 'none', color: '#B22222' }}>
                     {course.name}
                     </a>
                 </span>

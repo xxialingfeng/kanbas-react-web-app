@@ -4,10 +4,9 @@ import logo from './color.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faBook} from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from 'react';
-
 function Dashboard() {
   const courses = db.courses;
-  const [selectedCourse, setSelectedCourse] = useState(null);
+  const [setSelectedCourse] = useState(null);
 
   const handleCourseClick = (courseId) => {
     setSelectedCourse(courseId);
