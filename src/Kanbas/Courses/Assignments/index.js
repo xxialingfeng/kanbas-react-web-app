@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useParams } from "react-router-dom";
 import db from "../../Database";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faCircleCheck, faPlus, faEllipsisV, faBook, faGripVertical, faCaretDown, faHome} from "@fortawesome/free-solid-svg-icons";
+import {faCircleCheck, faPlus, faEllipsisV, faBook, faGripVertical, faCaretDown} from "@fortawesome/free-solid-svg-icons";
 function Assignments() {
   const { courseId } = useParams();
   const assignments = db.assignments;

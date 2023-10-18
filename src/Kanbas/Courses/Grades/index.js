@@ -2,7 +2,7 @@ import db from "../../Database";
 import { useParams } from "react-router-dom";
 import './style.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGear, faFileImport, faFileExport, faCaretDown, faKeyboard, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faGear, faFileImport, faFileExport, faCaretDown, faKeyboard } from "@fortawesome/free-solid-svg-icons";
 function Grades() {
   const { courseId } = useParams();
   const assignments = db.assignments.filter((assignment) => assignment.course === courseId);

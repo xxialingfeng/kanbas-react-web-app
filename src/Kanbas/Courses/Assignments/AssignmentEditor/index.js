@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate, useParams,} from "react-router-dom";
 import db from "../../../Database";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faCircleCheck, faPlus, faEllipsisV, faBook, faGripVertical, faCaretDown} from "@fortawesome/free-solid-svg-icons";
+import {faCircleCheck, faEllipsisV} from "@fortawesome/free-solid-svg-icons";
 
 function AssignmentEditor() {
   const { assignmentId } = useParams();

@@ -1,6 +1,6 @@
 import ModuleList from "../Modules/ModuleList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faCircleCheck, faPlus, faEllipsisV, faBan, faFileImport, faUpload, faBullseye, faMagnifyingGlassChart, faBullhorn, faBell, faCircleInfo, faXmark, faCalendarDays, faChevronDown} from "@fortawesome/free-solid-svg-icons";
+import {faCircleCheck, faPlus, faEllipsisV, faBan, faFileImport, faUpload, faBullseye, faMagnifyingGlassChart, faBullhorn, faBell, faCircleInfo, faXmark, faCalendarDays, } from "@fortawesome/free-solid-svg-icons";
 function Home() {
     return (
       <div className="d-flex">
