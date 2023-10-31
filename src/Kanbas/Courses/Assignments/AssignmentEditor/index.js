@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import { useNavigate, useParams, useLocation} from "react-router-dom";
+import { useNavigate, useParams, useLocation, useDispatch} from "react-router-dom";
 import { Link } from "react-router-dom";
 import {
   addAssignment,
@@ -11,18 +11,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faCircleCheck, faEllipsisV} from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
 function AssignmentEditor() {
+  const dispatch = useDispatch();
   const { assignmentId } = useParams();
   const assignment = useSelector((state) => state.assignmentsReducer.assignment);
   const { pathname } = useLocation();
   const { courseId } = useParams();
   const navigate = useNavigate();
   useEffect(() => {
+    const localDispatch = dispatch;
     if (pathname.includes("AssignmentEditor")) {
-      dispatch(resetAssignment());
+      localDispatch(resetAssignment());
     } else {
-      dispatch(selectAssignment(assignment));
+      localDispatch(selectAssignment(assignment));
     }
-    }, [assignmentId, dispatch(), pathname, assignment]);
+    }, [assignmentId, dispatch, pathname, assignment]);
   const handleSave = () => {
     if (!pathname.includes("AssignmentEditor")) {
       dispatch(updateAssignment(assignment));
@@ -32,7 +34,6 @@ function AssignmentEditor() {
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
   
-  const dispatch = useDispatch();
   return (
     <div style={{ height:"230px"}}>
         <div className="buttonset" style={{ height: '54px', marginTop:"20px", marginBottom:"20px", fontFamily: "Verdana, Arial, Helvetica, sans-serif"}}>
