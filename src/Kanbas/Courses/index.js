@@ -1,4 +1,3 @@
-import db from "../../Kanbas/Database";
 import { Navigate, Route, Routes, useParams, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faGlasses } from "@fortawesome/free-solid-svg-icons";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -7,9 +7,8 @@ import {
   updateModule,
   setModule,
 } from "./modulesReducer";
-import db from "../../Database";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faCircleCheck, faPlus, faEllipsisV, faGripVertical, faCaretRight, faCaretDown} from "@fortawesome/free-solid-svg-icons";
+import {faCircleCheck, faGripVertical, faCaretRight, faCaretDown} from "@fortawesome/free-solid-svg-icons";
 
 function ModuleList() {
   const { courseId } = useParams();

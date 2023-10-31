@@ -1,6 +1,5 @@
 import React, {useEffect} from "react";
 import { useNavigate, useParams, useLocation} from "react-router-dom";
-import db from "../../../Database";
 import { Link } from "react-router-dom";
 import {
   addAssignment,
@@ -13,7 +12,6 @@ import {faCircleCheck, faEllipsisV} from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
 function AssignmentEditor() {
   const { assignmentId } = useParams();
-  const assignments = useSelector((state) => state.assignmentsReducer.assignments);
   const assignment = useSelector((state) => state.assignmentsReducer.assignment);
   const { pathname } = useLocation();
   const { courseId } = useParams();
@@ -24,7 +22,7 @@ function AssignmentEditor() {
     } else {
       dispatch(selectAssignment(assignment));
     }
-    }, [assignmentId]);
+    }, [assignmentId, dispatch, pathname, assignment]);
   const handleSave = () => {
     if (!pathname.includes("AssignmentEditor")) {
       dispatch(updateAssignment(assignment));
