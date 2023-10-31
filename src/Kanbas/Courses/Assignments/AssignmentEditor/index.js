@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import { useNavigate, useParams, useLocation} from "react-router-dom";
 import { Link } from "react-router-dom";
-import { useDispatch } from "redux"
+import { useDispatch } from "react-redux"
 import {
   addAssignment,
   selectAssignment,
