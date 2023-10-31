@@ -1,23 +1,43 @@
-import React from "react";
-import { useNavigate, useParams,} from "react-router-dom";
+import React, {useEffect} from "react";
+import { useNavigate, useParams, useLocation} from "react-router-dom";
 import db from "../../../Database";
 import { Link } from "react-router-dom";
+import {
+  addAssignment,
+  selectAssignment,
+  updateAssignment,
+  resetAssignment,
+} from "../assignmentsReducer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faCircleCheck, faEllipsisV} from "@fortawesome/free-solid-svg-icons";
-
+import { useSelector, useDispatch } from "react-redux";
 function AssignmentEditor() {
   const { assignmentId } = useParams();
-  const assignment = db.assignments.find(
-    (assignment) => assignment._id === assignmentId);
+  const assignments = useSelector((state) => state.assignmentsReducer.assignments);
+  const assignment = useSelector((state) => state.assignmentsReducer.assignment);
+  const { pathname } = useLocation();
   const { courseId } = useParams();
   const navigate = useNavigate();
+  useEffect(() => {
+    if (pathname.includes("AssignmentEditor")) {
+      dispatch(resetAssignment());
+    } else {
+      dispatch(selectAssignment(assignment));
+    }
+    }, [assignmentId]);
   const handleSave = () => {
-    console.log("Actually saving assignment TBD in later assignments");
+    if (!pathname.includes("AssignmentEditor")) {
+      dispatch(updateAssignment(assignment));
+  } else {
+      dispatch(addAssignment({ ...assignment, course: courseId }));
+  }
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
+  
+  const dispatch = useDispatch();
   return (
-    <div style={{borderBottom:"2px solid #ddd", height:"230px"}}>
-        <div className="buttonset" style={{ height: '54px', borderBottom: '1.5px solid #ddd', marginTop:"20px", marginBottom:"20px", fontFamily: "Verdana, Arial, Helvetica, sans-serif"}}>
+    <div style={{ height:"230px"}}>
+        <div className="buttonset" style={{ height: '54px', marginTop:"20px", marginBottom:"20px", fontFamily: "Verdana, Arial, Helvetica, sans-serif"}}>
             <div className="float-end" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <FontAwesomeIcon icon={faCircleCheck} className="p-1" style={{ color: 'green', display: 'flex', justifyContent: 'center' }}/>
                 <p className="p-1" style={{ color: 'green', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '0', margin: '0' }}>Published</p>
@@ -27,14 +47,52 @@ function AssignmentEditor() {
             </div>
         </div>
       <span style={{fontSize: "20px", marginTop:"20px", marginBottom:"20px", fontFamily: "Verdana, Arial, Helvetica, sans-serif"}}>Assignment Name</span>
-      <input value={assignment.title}
+      <input value={assignment.name}
+              onChange={(e) => dispatch(selectAssignment({ ...assignment, name: e.target.value }))}
              className="form-control mb-2" style={{fontFamily: "Verdana, Arial, Helvetica, sans-serif", marginTop:"10px", marginBottom:"10px"}}/>
+      <textarea value={assignment.description}
+          onChange={(e) => dispatch(selectAssignment({ ...assignment, description: e.target.value }))}
+          className="form-control mb-2" style={{fontFamily: "Verdana, Arial, Helvetica, sans-serif", marginTop:"10px", marginBottom:"10px"}}/>
+      <div style={{fontFamily: "Verdana, Arial, Helvetica, sans-serif", borderBottom:"1px solid #ddd", marginBottom:"20px", paddingBottom:"10px"}}> 
+        <div className="d-flex" style={{fontFamily: "Verdana, Arial, Helvetica, sans-serif"}}>
+          <div style={{width:"400px",display: "flex", justifyContent: "flex-end", alignItems: "center", paddingRight:"30px"}}>
+            <span >Points</span>
+          </div>
+          <input value={100}
+             className="form-control mb-2" style={{fontFamily: "Verdana, Arial, Helvetica, sans-serif", marginTop:"10px", marginBottom:"10px", width:"400px"}}/>
+        </div>
+        <div className="d-flex" >
+          <div style={{width:"400px",display: "flex", justifyContent: "flex-end", alignItems: "center", paddingRight:"30px"}}>
+            <span >Assign</span>
+          </div>
+          <div className="form-control" style={{width:"700px"}}>
+            <span style={{fontWeight:"bold"}}>Due</span>
+            <input value={assignment.dueDate}
+            onChange={(e) => dispatch(selectAssignment({ ...assignment, dueDate: e.target.value }))}
+             className="form-control mb-2" style={{fontFamily: "Verdana, Arial, Helvetica, sans-serif", marginTop:"10px", marginBottom:"10px", width:"300px"}}/>
+              <div className="row">
+                <div className="col"style={{marginTop:"20px"}} >
+                  <span style={{fontWeight:"bold"}}>Available From</span>
+                  <input type="date" style={{width:"300px"}} className="form-control" value={assignment.availableFromDate}
+                  onChange={(e) => dispatch(selectAssignment({ ...assignment, availableFromDate: e.target.value }))}
+                   aria-label="First name" />
+                </div>
+                <div className="col" style={{marginTop:"20px"}}>
+                  <span style={{fontWeight:"bold"}}>Until</span>
+                  <input type="date" style={{width:"300px"}} className="form-control" value={assignment.availableUntilDate}
+                  onChange={(e) => dispatch(selectAssignment({ ...assignment, availableUntilDate: e.target.value }))}
+                  aria-label="Last name" />
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
       <div className="float-end" style={{fontFamily: "Verdana, Arial, Helvetica, sans-serif"}}>
         <Link to={`/Kanbas/Courses/${courseId}/Assignments`} 
                 className="btn btn-secondary" style={{backgroundColor:"#ddd", border:"none", color:"black"}}>
             Cancel
         </Link>
-        <button onClick={handleSave} className="btn me-2" style={{backgroundColor:"#B22222", border:"none", color:"white", marginLeft:"5px"}}>
+        <button onClick={() => {handleSave()}} className="btn me-2" style={{backgroundColor:"#B22222", border:"none", color:"white", marginLeft:"5px"}}>
             Save
         </button>
       </div>

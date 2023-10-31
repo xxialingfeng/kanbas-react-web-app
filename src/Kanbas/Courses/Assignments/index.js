@@ -1,13 +1,27 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import db from "../../Database";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  deleteAssignment,
+  selectAssignment,
+} from "./assignmentsReducer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faCircleCheck, faPlus, faEllipsisV, faBook, faGripVertical, faCaretDown} from "@fortawesome/free-solid-svg-icons";
 function Assignments() {
   const { courseId } = useParams();
-  const assignments = db.assignments;
-  const courseAssignments = assignments.filter(
-    (assignment) => assignment.course === courseId);
+    
+  const assignments = useSelector((state) => state.assignmentsReducer.assignments);
+  const dispatch = useDispatch();
+
+  const handleDelete = (e, assignmentId) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this assignment?");
+    if (confirmDelete) {
+      dispatch(deleteAssignment(assignmentId));
+      // Update Assignments screen to reflect the deleted assignment.
+    }
+    e.preventDefault(); // 阻止Link的默认导航行为
+  };
+
 
   return (
     <div>
@@ -15,7 +29,9 @@ function Assignments() {
             <div class="buttonset" style={{height:"54px", borderBottom: "1.5px solid #ddd", marginTop:"20px"}}>
                 <div class="float-end">
                     <button class="btn btn-secondary" style={{backgroundColor:"#ddd", border: "#ddd", color:"black", marginLeft:"5px"}}><FontAwesomeIcon icon={faPlus}/>  Group</button>
-                    <button class="btn btn-danger" style={{backgroundColor:"#B22222", border: "#ddd", color: "white", marginLeft:"5px"}}><FontAwesomeIcon icon={faPlus}/>  Assignment</button>
+                    <Link to={`/Kanbas/Courses/${courseId}/Assignments/AssignmentEditor`}>
+                      <button class="btn btn-danger" style={{backgroundColor:"#B22222", border: "#ddd", color: "white", marginLeft:"5px"}}><FontAwesomeIcon icon={faPlus}/>  Assignment</button>
+                    </Link>
                     <button class="btn btn-secondary" style={{height: "40px", backgroundColor: "#ddd", border: "#ddd", color: "black", marginLeft:"5px"}}><FontAwesomeIcon icon={faEllipsisV}/></button>
                 </div>
                 <input type="text" class="form-control w-25" style={{width:"300px"}} placeholder="Search for Assignment" ariaLabel="Recipient's username" ariaDescribedby="button-addon2"></input>
@@ -32,10 +48,14 @@ function Assignments() {
                     <FontAwesomeIcon icon={faEllipsisV} style={{marginLeft:"10px"}}/>
                 </div>
             </li>
-        {courseAssignments.map((assignment) => (
+        {
+        assignments
+        .filter((assignment) => assignment.course === courseId)
+        .map((assignment, index) => (
           <Link
             key={assignment._id}
             to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`} 
+            onClick={() => dispatch(selectAssignment({ ...assignment, course: courseId }))}
             className="list-group-item"
             style={{borderLeft:"3px solid green"}}
             >
@@ -55,6 +75,9 @@ function Assignments() {
                 <div class="float-end" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                     <FontAwesomeIcon icon={faCircleCheck} className="p-2" style={{color: "green"}}/>
                     <FontAwesomeIcon icon={faEllipsisV} className="p-2"/>
+                    <button className="btn" style={{ backgroundColor: "#ddd" }} onClick={(e) => handleDelete(e, assignment._id)}>
+                      Delete
+                    </button>
                 </div>
             </div>
           </Link>

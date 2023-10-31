@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faCircleCheck, faPlus, faEllipsisV} from "@fortawesome/free-solid-svg-icons";
 function Modules() {
   return (
-    <div>
+    <div >
         <div class="buttonset" style={{width:"100%", height:"100px"}}>
             <div class="float-end" style={{paddingBottom:"20px", borderBottom: "1.5px solid #ddd"}}>
                 <button class="btn btn-secondary dropdown-toggle" style={{backgroundColor: "#ddd", border: "#ddd", color:"black", marginLeft:"5px", marginTop:"20px"}}>Collapse All</button>

@@ -1,11 +1,11 @@
 [
-    { "_id": "A101", "title": "Propulsion Assignment", "course": "RS101" },
-    { "_id": "A102", "title": "Combustion Analysis", "course": "RS101" },
-    { "_id": "A103", "title": "Nozzle Design Project", "course": "RS101" },
-    { "_id": "A201", "title": "Aerodynamics Quiz", "course": "RS102" },
-    { "_id": "A202", "title": "Flow Analysis", "course": "RS102" },
-    { "_id": "A203", "title": "Heating Analysis", "course": "RS102" },
-    { "_id": "A301", "title": "Structural Design Task", "course": "RS103" },
-    { "_id": "A302", "title": "Orbital Calculations", "course": "RS103" },
-    { "_id": "A303", "title": "Systems Engineering Exam", "course": "RS103" }
+    { "_id": "A101", "name": "Propulsion Assignment", "course": "RS101", "description": "This is a course about Propulsion Assignment", "dueDate": "2023-10-29", "availableFromDate": "2023-09-27", "availableUntilDate": "2023-11-01" },
+    { "_id": "A102", "name": "Combustion Analysis", "course": "RS101", "description": "This is a course about Combustion Analysis", "dueDate": "2023-10-28", "availableFromDate": "2023-09-26", "availableUntilDate": "2023-10-31" },
+    { "_id": "A103", "name": "Nozzle Design Project", "course": "RS101", "description": "This is a course about Nozzle Design Project", "dueDate": "2023-10-25", "availableFromDate": "2023-09-23", "availableUntilDate": "2023-10-29" },
+    { "_id": "A201", "name": "Aerodynamics Quiz", "course": "RS102", "description": "This is a course about Aerodynamics Quiz", "dueDate": "2023-10-29", "availableFromDate": "2023-09-21", "availableUntilDate": "2023-11-04"},
+    { "_id": "A202", "name": "Flow Analysis", "course": "RS102", "description": "This is a course about Flow Analysis", "dueDate": "2023-09-29", "availableFromDate": "2023-09-13", "availableUntilDate": "2023-10-04"},
+    { "_id": "A203", "name": "Heating Analysis", "course": "RS102", "description": "This is a course about Heating Analysis", "dueDate": "2023-08-26", "availableFromDate": "2023-09-08", "availableUntilDate": "2023-09-22"},
+    { "_id": "A301", "name": "Structural Design Task", "course": "RS103", "description": "This is a course about Structural Design Task", "dueDate": "2023-09-15", "availableFromDate": "2023-09-11", "availableUntilDate": "2023-09-24" },
+    { "_id": "A302", "name": "Orbital Calculations", "course": "RS103", "description": "This is a course about Orbital Calculations", "dueDate": "2023-09-22", "availableFromDate": "2023-09-19", "availableUntilDate": "2023-09-30" },
+    { "_id": "A303", "name": "Systems Engineering Exam", "course": "RS103", "description": "This is a course about Systems Engineering Exam", "dueDate": "2023-11-22", "availableFromDate": "2023-11-19", "availableUntilDate": "2023-11-24"}
   ]
