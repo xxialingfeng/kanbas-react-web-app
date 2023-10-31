@@ -22,7 +22,7 @@ function AssignmentEditor() {
     } else {
       dispatch(selectAssignment(assignment));
     }
-    }, [assignmentId, dispatch, pathname, assignment]);
+    }, [assignmentId, dispatch(), pathname, assignment]);
   const handleSave = () => {
     if (!pathname.includes("AssignmentEditor")) {
       dispatch(updateAssignment(assignment));
