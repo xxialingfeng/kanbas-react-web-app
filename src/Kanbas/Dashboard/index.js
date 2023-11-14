@@ -6,17 +6,11 @@ import { React, useState } from "react";
 function Dashboard({ courses, course, setCourse, addCourse,
   deleteCourse, updateCourse }
 ) {
-  const [selectedCourse, setSelectedCourse] = useState(null);
+  const [setSelectedCourse] = useState(null);
 
   const handleCourseClick = (courseId) => {
     setSelectedCourse(courseId);
   };
-
-  const printInfo = async () => {
-    console.log(" ", course.name);
-  }
-
-
   return (
     <div style={{ flex: 1 }}>
       <div style={{marginLeft:"10px", borderBottom :"1px solid #ddd", fontFamily: "Verdana, Arial, Helvetica, sans-serif",}}>

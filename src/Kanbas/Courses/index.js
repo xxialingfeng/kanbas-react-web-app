@@ -9,7 +9,7 @@ import AssignmentEditor from "./Assignments/AssignmentEditor";
 import Grades from "./Grades";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-function  Courses({ }) {
+function  Courses() {
   const { courseId } = useParams();
   const [course, setCourse] = useState({});
   const URL = "http://localhost:4000/api/courses"; 

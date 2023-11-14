@@ -21,18 +21,18 @@ function ModuleList() {
   };
 
   useEffect(() => {
+    const localDispatch = dispatch;
     findModulesForCourse(courseId)
       .then((modules) =>
-        dispatch(setModules(modules))
+        localDispatch(setModules(modules))
     );
-  }, [courseId]);
+  }, [courseId], dispatch);
   const handleAddModule = () => {
     createModule(courseId, module).then((module) => {
       dispatch(addModule(module));
     });
   };
   const handleUpdateModule = async () => {
-    const status = await client.updateModule(module);
     dispatch(updateModule(module));
   };
 

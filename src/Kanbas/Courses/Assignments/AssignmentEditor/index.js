@@ -21,11 +21,12 @@ function AssignmentEditor() {
   const { pathname } = useLocation();
   const { courseId } = useParams();
   useEffect(() => {
+    const localDispatch = dispatch;
     findAssignmentsForCourse(courseId)
       .then((assignments) =>
-        dispatch(setAssignemnts(assignments))
+      localDispatch(setAssignemnts(assignments))
     );
-  }, [courseId]);
+  }, [courseId], dispatch);
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -48,7 +49,6 @@ function AssignmentEditor() {
   };
 
   const handleUpdateAssignment = async () => {
-    const status = await service.updateAssignment(assignment);
     dispatch(updateAssignment(assignment));
   };
 

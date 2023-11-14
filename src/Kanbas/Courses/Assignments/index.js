@@ -13,11 +13,12 @@ import {faCircleCheck, faPlus, faEllipsisV, faBook, faGripVertical, faCaretDown}
 function Assignments() {
   const { courseId } = useParams();
   useEffect(() => {
+    const localDispatch = dispatch;
     findAssignmentsForCourse(courseId)
       .then((assignments) =>
-        dispatch(setAssignemnts(assignments))
+      localDispatch(setAssignemnts(assignments))
     );
-  }, [courseId]);
+  }, [courseId], dispatch);
   const assignments = useSelector((state) => state.assignmentsReducer.assignments);
   const dispatch = useDispatch();
 
