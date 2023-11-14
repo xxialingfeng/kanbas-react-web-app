@@ -9,7 +9,6 @@ import {
   resetAssignment,
   setAssignemnts,
 } from "../assignmentsReducer";
-import * as service from "../service";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faCircleCheck, faEllipsisV} from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
@@ -27,7 +26,6 @@ function AssignmentEditor() {
       localDispatch(setAssignemnts(assignments))
     );
   }, [courseId], dispatch);
-
   const navigate = useNavigate();
   useEffect(() => {
     const localDispatch = dispatch;

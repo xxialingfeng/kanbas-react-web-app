@@ -11,6 +11,7 @@ import * as service from "./service";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faCircleCheck, faPlus, faEllipsisV, faBook, faGripVertical, faCaretDown} from "@fortawesome/free-solid-svg-icons";
 function Assignments() {
+  const dispatch = useDispatch();
   const { courseId } = useParams();
   useEffect(() => {
     const localDispatch = dispatch;
@@ -20,7 +21,6 @@ function Assignments() {
     );
   }, [courseId], dispatch);
   const assignments = useSelector((state) => state.assignmentsReducer.assignments);
-  const dispatch = useDispatch();
 
   const handleDelete = (e, assignmentId) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this assignment?");

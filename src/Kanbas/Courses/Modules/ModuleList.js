@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faCircleCheck, faGripVertical, faCaretRight, faCaretDown} from "@fortawesome/free-solid-svg-icons";
 import { findModulesForCourse, createModule } from "./client";
 function ModuleList() {
+  const dispatch = useDispatch();
   const { courseId } = useParams();
   const handleDeleteModule = (moduleId) => {
     client.deleteModule(moduleId).then((status) => {
@@ -39,7 +40,6 @@ function ModuleList() {
 
   const modules = useSelector((state) => state.modulesReducer.modules);
   const module = useSelector((state) => state.modulesReducer.module);
-  const dispatch = useDispatch();
 
   
 
