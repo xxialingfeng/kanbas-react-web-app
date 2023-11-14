@@ -25,7 +25,7 @@ function AssignmentEditor() {
       .then((assignments) =>
       localDispatch(setAssignemnts(assignments))
     );
-  }, [courseId], dispatch);
+  }, [courseId, dispatch]);
   const navigate = useNavigate();
   useEffect(() => {
     const localDispatch = dispatch;

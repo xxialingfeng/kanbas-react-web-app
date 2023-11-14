@@ -19,7 +19,7 @@ function Assignments() {
       .then((assignments) =>
       localDispatch(setAssignemnts(assignments))
     );
-  }, [courseId], dispatch);
+  }, [courseId, dispatch]);
   const assignments = useSelector((state) => state.assignmentsReducer.assignments);
 
   const handleDelete = (e, assignmentId) => {
