@@ -7,16 +7,26 @@ import {
   selectAssignment,
   updateAssignment,
   resetAssignment,
+  setAssignemnts,
 } from "../assignmentsReducer";
+import * as service from "../service";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faCircleCheck, faEllipsisV} from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
+import {findAssignmentsForCourse, createAssignment} from "../service"
 function AssignmentEditor() {
   const dispatch = useDispatch();
   const { assignmentId } = useParams();
   const assignment = useSelector((state) => state.assignmentsReducer.assignment);
   const { pathname } = useLocation();
   const { courseId } = useParams();
+  useEffect(() => {
+    findAssignmentsForCourse(courseId)
+      .then((assignments) =>
+        dispatch(setAssignemnts(assignments))
+    );
+  }, [courseId]);
+
   const navigate = useNavigate();
   useEffect(() => {
     const localDispatch = dispatch;
@@ -28,12 +38,24 @@ function AssignmentEditor() {
     }, [assignmentId, dispatch, pathname, assignment]);
   const handleSave = () => {
     if (!pathname.includes("AssignmentEditor")) {
-      dispatch(updateAssignment(assignment));
+        handleUpdateAssignment();
   } else {
-      dispatch(addAssignment({ ...assignment, course: courseId }));
+      createAssignment(courseId, assignment).then((assignment) => {
+        dispatch(addAssignment(assignment));
+      });
   }
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
+
+  const handleUpdateAssignment = async () => {
+    const status = await service.updateAssignment(assignment);
+    dispatch(updateAssignment(assignment));
+  };
+
+
+
+
+
   
   return (
     <div style={{ height:"230px"}}>

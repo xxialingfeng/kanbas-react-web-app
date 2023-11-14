@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -6,12 +6,37 @@ import {
   deleteModule,
   updateModule,
   setModule,
+  setModules,
 } from "./modulesReducer";
+import * as client from "./client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faCircleCheck, faGripVertical, faCaretRight, faCaretDown} from "@fortawesome/free-solid-svg-icons";
-
+import { findModulesForCourse, createModule } from "./client";
 function ModuleList() {
   const { courseId } = useParams();
+  const handleDeleteModule = (moduleId) => {
+    client.deleteModule(moduleId).then((status) => {
+      dispatch(deleteModule(moduleId));
+    });
+  };
+
+  useEffect(() => {
+    findModulesForCourse(courseId)
+      .then((modules) =>
+        dispatch(setModules(modules))
+    );
+  }, [courseId]);
+  const handleAddModule = () => {
+    createModule(courseId, module).then((module) => {
+      dispatch(addModule(module));
+    });
+  };
+  const handleUpdateModule = async () => {
+    const status = await client.updateModule(module);
+    dispatch(updateModule(module));
+  };
+
+
   const modules = useSelector((state) => state.modulesReducer.modules);
   const module = useSelector((state) => state.modulesReducer.module);
   const dispatch = useDispatch();
@@ -32,8 +57,8 @@ function ModuleList() {
         </div>
         <div>
           <button className="btn" style={{backgroundColor:"#ddd", width:"100px"}}
-           onClick={() => dispatch(addModule({ ...module, course: courseId }))}>Add</button>
-          <button className="btn" style={{color:"white", backgroundColor:"green", width:"100px", marginLeft:"5px"}} onClick={() => dispatch(updateModule(module))}>
+           onClick={handleAddModule}>Add</button>
+          <button className="btn" style={{color:"white", backgroundColor:"green", width:"100px", marginLeft:"5px"}} onClick={() => handleUpdateModule(module._id)}>
                 Update
         </button>
 
@@ -63,7 +88,7 @@ function ModuleList() {
                 <FontAwesomeIcon icon={faCircleCheck} style={{color: "green", marginLeft:"5px"}}/>
                 <FontAwesomeIcon icon={faCaretDown} style={{marginLeft:"2px"}}/>
                 <button
-                    onClick={() => dispatch(deleteModule(module._id))}
+                    onClick={() => handleDeleteModule(module._id)}
                     className="btn"
                     style={{backgroundColor:"#B22222", color:"white", marginLeft:"15px"}}
                     >

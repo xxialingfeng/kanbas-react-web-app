@@ -3,14 +3,18 @@ import logo from './color.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faBook} from "@fortawesome/free-solid-svg-icons";
 import { React, useState } from "react";
-function Dashboard({ courses, course, setCourse, addNewCourse,
+function Dashboard({ courses, course, setCourse, addCourse,
   deleteCourse, updateCourse }
 ) {
-  const [setSelectedCourse] = useState(null);
+  const [selectedCourse, setSelectedCourse] = useState(null);
 
   const handleCourseClick = (courseId) => {
     setSelectedCourse(courseId);
   };
+
+  const printInfo = async () => {
+    console.log(" ", course.name);
+  }
 
 
   return (
@@ -31,11 +35,11 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
               onChange={(e) => setCourse({ ...course, startDate: e.target.value }) }/>
         <input value={course.endDate} className="form-control" type="date"
               onChange={(e) => setCourse({ ...course, endDate: e.target.value }) } />
-        <button className="btn" style={{width:"100px", backgroundColor:"#ddd", marginTop:"10px"}} onClick={addNewCourse} >
+        <button className="btn" style={{width:"100px", backgroundColor:"#ddd", marginTop:"10px"}} onClick={addCourse} >
           Add
         </button>
         <button className="btn" style={{width:"100px", backgroundColor:"#ddd", marginTop:"10px", marginLeft:"20px"}} onClick={updateCourse} >
-          Updae
+          Update
         </button>
       </div>
 
@@ -56,7 +60,7 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
                   <button className="btn" style={{color:"white",position: 'absolute', bottom: '35px', right: '10px'}}
                     onClick={(event) => {
                       event.preventDefault();
-                      deleteCourse(course._id);
+                      deleteCourse(course);
                     }}>
                     Delete
                   </button>

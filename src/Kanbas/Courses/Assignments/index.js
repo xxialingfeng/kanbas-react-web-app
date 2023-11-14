@@ -1,26 +1,40 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Link, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
   deleteAssignment,
   selectAssignment,
+  setAssignemnts,
 } from "./assignmentsReducer";
+import {findAssignmentsForCourse} from "./service"
+import * as service from "./service";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faCircleCheck, faPlus, faEllipsisV, faBook, faGripVertical, faCaretDown} from "@fortawesome/free-solid-svg-icons";
 function Assignments() {
   const { courseId } = useParams();
-    
+  useEffect(() => {
+    findAssignmentsForCourse(courseId)
+      .then((assignments) =>
+        dispatch(setAssignemnts(assignments))
+    );
+  }, [courseId]);
   const assignments = useSelector((state) => state.assignmentsReducer.assignments);
   const dispatch = useDispatch();
 
   const handleDelete = (e, assignmentId) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this assignment?");
     if (confirmDelete) {
-      dispatch(deleteAssignment(assignmentId));
-      // Update Assignments screen to reflect the deleted assignment.
+      service.deleteAssignment(assignmentId).then((status) => {
+        dispatch(deleteAssignment(assignmentId));
+      });
+  
     }
     e.preventDefault(); // 阻止Link的默认导航行为
   };
+
+
+
+
 
 
   return (

@@ -7,10 +7,22 @@ import Home from "./Home"
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
 import Grades from "./Grades";
-import React, { useState } from "react";
-function  Courses({ courses }) {
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+function  Courses({ }) {
   const { courseId } = useParams();
-  const course = courses.find((course) => course._id === courseId);
+  const [course, setCourse] = useState({});
+  const URL = "http://localhost:4000/api/courses"; 
+  const findCourseById = async (courseId) => {
+    const response = await axios.get(
+      `${URL}/${courseId}`
+    );
+    setCourse(response.data);
+  };
+  useEffect(() => {
+    findCourseById(courseId);
+  }, [courseId]);
+
   const location = useLocation();
   const [setShowExtraBreadcrumb] = useState(false);
   const handleShowExtraBreadcrumb = () => {
