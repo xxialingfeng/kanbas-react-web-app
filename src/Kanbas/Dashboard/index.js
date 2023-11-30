@@ -6,7 +6,7 @@ import { React, useState } from "react";
 function Dashboard({ courses, course, setCourse, addCourse,
   deleteCourse, updateCourse }
 ) {
-  const [setSelectedCourse] = useState(null);
+  const [selectedCourse, setSelectedCourse] = useState(null);
 
   const handleCourseClick = (courseId) => {
     setSelectedCourse(courseId);

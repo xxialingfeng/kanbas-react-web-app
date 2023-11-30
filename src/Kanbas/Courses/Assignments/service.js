@@ -1,6 +1,6 @@
 import axios from "axios";
-const COURSES_URL = "https://kanbas-node-server-app-vlfd.onrender.com/api/courses";
-const ASSIGNMENT_URL = "https://kanbas-node-server-app-vlfd.onrender.com/api/assignments";
+const COURSES_URL = "http://localhost:4000/api/courses";
+const ASSIGNMENT_URL = "http://localhost:4000/api/assignments";
 export const deleteAssignment = async (assignmentId) => {
   const response = await axios
     .delete(`${ASSIGNMENT_URL}/${assignmentId}`);
