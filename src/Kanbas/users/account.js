@@ -25,7 +25,7 @@ function Account() {
     } else {
       fetchAccount();
     }
-  }, []);
+  }, [id]);
   const signout = async () => {
     await client.signout();
     navigate(`/project/signin`);
